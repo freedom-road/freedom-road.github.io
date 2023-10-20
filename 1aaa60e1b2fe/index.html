@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Spring Boot 简介 - 自由之路</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="自由之路xxx"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="自由之路xxx"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="对于做 Java 开发的程序员，Spring 是一个绕不开的框架。现在几乎所有的 Java 项目都会使用 Spring 作为基础框架。但是大概两三年前有一个叫做 Spring Boot 的“家伙”横空出世，其风头好像一时盖过了 Spring。所有基于 Spring 开发的新项目都转向使用 Spring Boot 进行开发了。那么 Spring Boot 究竟是一个什么框架？和 Spring 又有什"><meta property="og:type" content="blog"><meta property="og:title" content="Spring Boot 简介"><meta property="og:url" content="https://freedom-road.github.io/1aaa60e1b2fe/"><meta property="og:site_name" content="自由之路"><meta property="og:description" content="对于做 Java 开发的程序员，Spring 是一个绕不开的框架。现在几乎所有的 Java 项目都会使用 Spring 作为基础框架。但是大概两三年前有一个叫做 Spring Boot 的“家伙”横空出世，其风头好像一时盖过了 Spring。所有基于 Spring 开发的新项目都转向使用 Spring Boot 进行开发了。那么 Spring Boot 究竟是一个什么框架？和 Spring 又有什"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://freedom-road.github.io/img/og_image.png"><meta property="article:published_time" content="2019-09-19T10:28:57.000Z"><meta property="article:modified_time" content="2023-10-19T10:31:41.501Z"><meta property="article:author" content="Freedom Road"><meta property="article:tag" content="SpringBoot"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://freedom-road.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://freedom-road.github.io/1aaa60e1b2fe/"},"headline":"Spring Boot 简介","image":["https://freedom-road.github.io/img/og_image.png"],"datePublished":"2019-09-19T10:28:57.000Z","dateModified":"2023-10-19T10:31:41.501Z","author":{"@type":"Person","name":"Freedom Road"},"publisher":{"@type":"Organization","name":"自由之路","logo":{"@type":"ImageObject","url":"https://freedom-road.github.io/img/logo.svg"}},"description":"对于做 Java 开发的程序员，Spring 是一个绕不开的框架。现在几乎所有的 Java 项目都会使用 Spring 作为基础框架。但是大概两三年前有一个叫做 Spring Boot 的“家伙”横空出世，其风头好像一时盖过了 Spring。所有基于 Spring 开发的新项目都转向使用 Spring Boot 进行开发了。那么 Spring Boot 究竟是一个什么框架？和 Spring 又有什"}</script><link rel="canonical" href="https://freedom-road.github.io/1aaa60e1b2fe/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="自由之路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-09-19T10:28:57.000Z" title="2019/9/19 下午6:28:57">2019-09-19</time>发表</span><span class="level-item"><time dateTime="2023-10-19T10:31:41.501Z" title="2023/10/19 下午6:31:41">2023-10-19</time>更新</span><span class="level-item">10 分钟读完 (大约1446个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">Spring Boot 简介</h1><div class="content"><p>对于做 Java 开发的程序员，Spring 是一个绕不开的框架。现在几乎所有的 Java 项目都会使用 Spring 作为基础框架。但是大概两三年前有一个叫做 Spring Boot 的“家伙”横空出世，其风头好像一时盖过了 Spring。所有基于 Spring 开发的新项目都转向使用 Spring Boot 进行开发了。那么 Spring Boot 究竟是一个什么框架？和 Spring 又有什么关系？本篇博客就来对 Spring Boot 做一个简单介绍。</p>
+<h2 id="Spring-Boot-简介"><a href="#Spring-Boot-简介" class="headerlink" title="Spring Boot 简介"></a>Spring Boot 简介</h2><p>我们先来看下 Spring Boot 官网对这个框架的介绍：</p>
+<blockquote>
+<p>Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run. We take an opinionated view of the Spring platform and third-party libraries, so that you can get started with minimum fuss. Most Spring Boot applications need very little Spring configuration. You can use Spring Boot to create Java applications that can be started by using java -jar or more traditional war deployments. We also provide a command line tool that runs “spring scripts”.<br>Our primary goals are:<br>• Provide a radically faster and widely accessible getting-started experience for all Spring development.<br>• Be opinionated out of the box but get out of the way quickly as requirements start to diverge from the defaults.<br>• Provide a range of non-functional features that are common to large classes of projects (such as embedded servers, security, metrics, health checks, and externalized configuration).<br>• Absolutely no code generation and no requirement for XML configuration.</p>
+</blockquote>
+<span id="more"></span>
+
+<p>上面介绍的大概意思是：使用 Spring Boot 可以非常方便地创建生产级别的 Spring 应用；Spring Boot 提供了很多默认配置，但是程序员也可以非常方便地提供自己的配置；Spring Boot 可以大大减少甚至不使用传统 Spring 项目中的 XML 配置文件。</p>
+<p>** 自己总结下 **：Spring Boot 其实并不是一个新的 Spring 框架，它进行了很多自动配置，目的是让用户能迅速开发基于 Spring 的应用，尽可能减少繁琐的 Spring 配置，提升开发者的开发体验和开发效率。</p>
+<p>Spring Boot 进行自动配置的原理是：根据开发者添加的 jar 包依赖（classpath 中的类），自动配置相应的 Bean，从而大大减少开发者手动的配置。比如说开发者添加了 <code>spring-boot-starter-web</code> 这个依赖，那么 Spring Boot 就认为你是要开发 Spring MVC 应用，它会自动帮你配置 DispatcherServlet、HandlerMapping 和 HandlerMethod 等一系列 Spring MVC 的核心组件。开发者就不需要自己在进行配置了。</p>
+<p>Spring Boot 另外一个方便的地方是内嵌了 Servlet 容器，我们开发完之后可以直接将应用打成一个可执行的 Jar 包，而不是打成 war 包再部署到自己安装的  Servlet 容器中去。</p>
+<p>下面我们用一个 Spring MVC 应用的列子，看看 Spring Boot 到底能给我们带来哪些方便。</p>
+<h2 id="使用-Spring-Boot-开发项目"><a href="#使用-Spring-Boot-开发项目" class="headerlink" title="使用 Spring Boot 开发项目"></a>使用 Spring Boot 开发项目</h2><ol>
+<li>** 传统的开发流程 **</li>
+</ol>
+<p>我们使用传统的 Spring 开发一个 Spring MVC 项目大概要做下面几个步骤：</p>
+<ul>
+<li>添加一系列 Spring 的核心依赖，添加 Spring MVC 依赖；</li>
+<li>配置 web.xml 配置文件，主要是配置 ContextLoaderListener 和 DispatcherServlet；</li>
+<li>进行 Spring MVC 相关的配置，主要是 <code>&lt;mvc:default-servlet-handler/&gt;</code> 和 <code>&lt;mvc:annotation-driven/&gt;</code> 等相关配置；</li>
+<li>日志相关配置；</li>
+<li>编写相关的 Controller；</li>
+<li>打成 war 包，安装 Tomcat，并部署 war 运行。</li>
+</ul>
+<p>对于新手来说，上面的流程步骤还是很多的，很有可能在某一步出错。特别是好多刚刚接触 Spring 的同学对于第一步中要添加哪些依赖根本就“傻傻分不清楚”，比较影响学习的积极性。对于老手来说，上面的步骤可能都是一些重复性的操作，比较“浪费时间”。因此需要 Spring Boot 来解决这个问题。</p>
+<ol start="2">
+<li>**Spring Boot 开发流程 **</li>
+</ol>
+<p>使用 Spring Boot 开发 Spring MVC 我们需要下面几步：</p>
+<ul>
+<li>添加依赖</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编写主启动类</li>
+<li>编写相关的 Controller</li>
+<li>直接打成可执行 Jar 包运行。</li>
+</ul>
+<p>我们可以发现使用 Spring Boot 真的可以减少很多流程，而且大大减少自己配置出错的概率。</p>
+<h2 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h2><p>Spring Boot 是一个能够帮助开发者迅速开发 Spring 应用框架。它大大减少了传统 Spring 应用中的配置文件，提升开发效率和开发体验。同时 Spring Boot 还提了内嵌式的 Servlet 容器，可以将应用打成可执行 Jar 包直接运行。</p>
+<p>** 一些问题 **</p>
+<p>使用 Spring Boot 的确可以提升开发效率。但是它封装了太多细节，对于初学者来说 Spring Boot 也可能是“噩梦”。出了问题不知从何查起。所以我觉得对于框架这种东西我们还是要知道他们的原理性的知识，这样使用起来才能更加得心应手。</p>
+<p>如果你是刚刚接触 Spring Boot 下面这些问题可以过段时间再考虑，先将 Spring Boot 用熟练再说。但如果你已经使用 Spring Boot 有段时间了，下面这些问题还是建议自己去琢磨琢磨：</p>
+<ul>
+<li>Spring Boot 的启动流程是怎样的；</li>
+<li>Spring Boot 中的自动配置是怎么生效的；</li>
+<li>内嵌的 Servlet 容器（比如 Tomcat）是什么时候加载的；</li>
+<li>打成的可执行 Jar 包是怎么执行的。</li>
+</ul>
+<p>当然上面只是我现在能想到的一些问题，自己在学习过程中可以去不断发现和总结。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Spring Boot 简介</p><p><a href="https://freedom-road.github.io/1aaa60e1b2fe/">https://freedom-road.github.io/1aaa60e1b2fe/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Freedom Road</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2019-09-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-10-19</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/SpringBoot/">SpringBoot</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/55b848b0ad8d/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Github + Hexo 免费搭建私人博客网站</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/cacbeaa351ff/"><span class="level-item">JDBC 简明教程</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/my-avatar.png" alt="Freedom Road"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Freedom Road</p><p class="is-size-6 is-block">Software Engineer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">8</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/freedom-road" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Spring-Boot-简介"><span class="level-left"><span class="level-item">1</span><span class="level-item">Spring Boot 简介</span></span></a></li><li><a class="level is-mobile" href="#使用-Spring-Boot-开发项目"><span class="level-left"><span class="level-item">2</span><span class="level-item">使用 Spring Boot 开发项目</span></span></a></li><li><a class="level is-mobile" href="#简单总结"><span class="level-left"><span class="level-item">3</span><span class="level-item">简单总结</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-10-19T08:10:59.000Z">2023-10-19</time></p><p class="title"><a href="/7276ee78dc1d/">Spring 注解系列之 @PropertySource</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-10-16T08:38:39.000Z">2023-10-16</time></p><p class="title"><a href="/55b848b0ad8d/">Github + Hexo 免费搭建私人博客网站</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-09-19T10:28:57.000Z">2019-09-19</time></p><p class="title"><a href="/1aaa60e1b2fe/">Spring Boot 简介</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-08-28T06:15:48.000Z">2019-08-28</time></p><p class="title"><a href="/cacbeaa351ff/">JDBC 简明教程</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-08-27T06:10:15.000Z">2019-08-27</time></p><p class="title"><a href="/cff62306d258/">Spring Boot 可执行 Jar 包运行原理分析</a></p></div></article></div></div><!--!--><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Github/"><span class="tag">Github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JDBC/"><span class="tag">JDBC</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java%E5%9F%BA%E6%9C%AC%E5%8A%9F/"><span class="tag">Java基本功</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SpringBoot/"><span class="tag">SpringBoot</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/"><span class="tag">技术原理</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="自由之路" height="28"></a><p class="is-size-7"><span>&copy; 2023 Freedom Road</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
